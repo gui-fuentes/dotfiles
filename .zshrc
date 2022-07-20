@@ -136,3 +136,4 @@ alias emr="sudo emerge --depclean"
 
 
 export PATH="$PATH:/home/gfuentes/.local/bin"
+PATH="${PATH}:$HOME/.local/bin/"
