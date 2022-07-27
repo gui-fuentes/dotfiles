@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -8,7 +15,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="dracula-pro"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -115,9 +122,12 @@ alias yth="ytfzf -t -q"
 alias yta="ytfzf -t -m"
 alias ytd="ytfzf -t -d"
 alias gif="gif-for-cli -l 0 --display-mode=truecolor"
+alias cal="gcalcli"
+alias calm="gcalcli calm"
+alias calw="gcalcli calw"
+alias mail="himalaya -c ~/.himalayarc"
 
 # resolution screen
-
 alias xr1920="xrandr --output DP-0 --mode 1920x1080 --rate 120"
 alias xr3840="xrandr --output DP-0 --mode 3840x1080 --rate 120"
 alias xr2560="xrandr --output DP-0 --mode 2560x1440 --rate 120"
@@ -128,12 +138,20 @@ alias emm="sudo emerge -av --autounmask=y --autounmask-write"
 alias em="sudo emerge -av"
 alias ems="sudo emerge -s"
 alias dc="sudo dispatch-conf"
-alias newworld="sudo emerge --ask --verbose --update --deep --newuse @world"
-alias changeworld="sudo emerge --ask --verbose --update --deep --change-use @world"
+alias newuse="sudo emerge --ask --verbose --update --deep --newuse @world"
+alias changeuse="sudo emerge --ask --verbose --update --deep --changed-use @world"
 alias emr="sudo emerge --depclean"
+alias emup="sudo emerge --sync"
+alias emupup="sudo emerge-webrsync"
+
+# convert files
+alias batjpg="bash -c ~/.config/scripts/batPNGtoJPG.sh"
+alias batpng="bash -c ~/.config/scripts/batJPGtoPNG.sh"
 
 # autostart terminal
 
-
 export PATH="$PATH:/home/gfuentes/.local/bin"
 PATH="${PATH}:$HOME/.local/bin/"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
