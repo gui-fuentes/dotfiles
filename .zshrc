@@ -107,11 +107,13 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export EDITOR="vim"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# apps
 alias spt="spotify_player"
 alias sptl="sptlrx --current 'bold,#8be9fd' --before '#bd93f9,faint,italic,strikethrough' --after '#ff79c6,faint'"
 alias clock="tty-clock -c -s -D"
@@ -125,7 +127,12 @@ alias gif="gif-for-cli -l 0 --display-mode=truecolor"
 alias cal="gcalcli"
 alias calm="gcalcli calm"
 alias calw="gcalcli calw"
+
+# himalaya mail
 alias mail="himalaya -c ~/.himalayarc"
+alias mailsent="mail -m '[Gmail]/Sent Mail'"
+alias maild="mail attachments"
+alias mailw="mail write"
 
 # resolution screen
 alias xr1920="xrandr --output DP-0 --mode 1920x1080 --rate 120"
